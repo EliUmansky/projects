@@ -6,15 +6,15 @@ This function receives a string and returns 1 if
 ***************************************************/
 #include <stdio.h>//printf
 
-int Palindrome ( const char *str );
+int IsPalindrome ( const char *str );
 int main ()
 {
   const char *str = "eli:4567654:ile";
-  printf("%d", Palindrome(str));
+  printf("%d", IsPalindrome(str));
 
    return(0);
 }
-int Palindrome ( const char *str )
+int IsPalindrome ( const char *str )
 {
     const char *start = str;
     while ( *str )

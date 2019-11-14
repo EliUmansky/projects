@@ -12,19 +12,19 @@ int StrToNum ( char *str1, char *str2 );
 
 int main ()
 {
-	char str1[] = "98";
-	char str2[] = "135";
+	char str1[] = "8765432187654321";
+	char str2[] = "1234567812345678";
 
-	printf("%d\n", StrToNum (str1, str2));
+	printf("%llu\n", StrToNum (str1, str2));
 	
 
 	return 0;
 }
 
-int StrToNum ( char *str1, char *str2 )
+long long unsigned int StrToNum ( char *str1, char *str2 )
 {
 	int tens = 1;
-	int sum = 0;
+	long long unsigned int sum = 0;
 	char *str1_end = str1 + len(str1) - 1;
 	char *str2_end = str2 + len(str2) - 1;
 	
