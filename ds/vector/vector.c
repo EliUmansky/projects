@@ -1,0 +1,165 @@
+/***********************************************************************/
+/*   Author: Eli Umansky ||| Reviewer: Jenny Kogan ||| Date 26.11.19   */
+/***********************************************************************/
+/*      This file contains all the functions of the header dvec.h      */
+/***********************************************************************/
+
+#include <stdio.h> /* size_t */
+#include <stdlib.h> /* malloc */
+#include <string.h> /* memcpy */
+#include <assert.h> /* assert */
+#include "vector.h"	/* function declarations */
+
+
+struct d_vector
+{
+	size_t element_size;
+	void *start;
+	size_t size;
+	size_t capacity;
+};
+
+d_vector_t *DvecCreate(size_t element_size, size_t num_of_elements)
+{
+	d_vector_t *dvec = NULL;
+	void *arr = NULL;
+
+	assert(0 < element_size);
+
+	dvec = (d_vector_t*)malloc(sizeof(d_vector_t));
+
+	if (NULL == dvec)
+	{
+		return NULL;
+	}
+
+	if (8 > num_of_elements)
+	{
+		num_of_elements = 8;
+	}
+
+	arr = (void*)malloc(num_of_elements * element_size);
+
+	if (NULL == arr)
+	{
+		free(dvec);		
+
+		return NULL;
+	}
+
+	dvec -> element_size = element_size;
+	dvec -> start = arr;
+	dvec -> size = 0;
+	dvec -> capacity = num_of_elements;
+
+	return dvec;
+}
+
+void DvecDestroy(d_vector_t *dvec)
+{
+	assert(NULL != dvec);	
+
+	free(dvec -> start);
+	free(dvec);
+}
+
+int DvecPushBack(d_vector_t *dvec, const void *data)
+{
+	assert(NULL != dvec);
+	assert(NULL != data);	
+	assert((dvec -> capacity) > (dvec -> size));
+
+	memcpy((char*)(dvec -> start) + (dvec -> size * dvec -> element_size),
+ 			data, dvec -> element_size);
+	++(dvec -> size);
+
+	if ((dvec -> capacity) == (dvec -> size))
+	{
+		dvec -> start = realloc(dvec -> start, 2 * (dvec -> capacity) * 
+							   (dvec -> element_size));
+
+		(dvec -> capacity) *= 2;
+	}
+
+	if (NULL == (dvec -> start))
+	{
+		return -1;
+	}
+	
+	return 0;
+}
+
+int DvecPopBack(d_vector_t *dvec)
+{
+	assert(NULL != dvec);
+	assert(0 < (dvec -> size));
+
+	--(dvec -> size);
+
+	if (((dvec -> capacity) / 4) >= (dvec -> size))
+	{
+		dvec -> start = realloc(dvec -> start, (dvec -> capacity) * 
+							   (dvec -> element_size) / 2);
+		
+		(dvec -> capacity) *= 2;
+	}
+
+	if (NULL == (dvec -> start))
+	{
+		return -1;
+	}
+	
+	return 0;
+}
+
+void *DvecGetItemAddress(const d_vector_t *dvec, size_t index)
+{
+	assert(NULL != dvec);
+	assert((dvec -> size) > index);	
+
+	return (char*)(dvec -> start) + ((dvec -> element_size) * index);
+}
+
+int DvecReserve(d_vector_t *dvec, size_t new_capacity)
+{
+	assert(NULL != dvec);
+	assert(0 < new_capacity);
+	
+	if (new_capacity > (dvec -> size))
+	{
+		dvec -> start = realloc(dvec -> start, (dvec -> element_size) * 								new_capacity);
+
+		dvec -> capacity = new_capacity;
+	}
+
+	else
+	{
+		dvec -> start = realloc(dvec -> start, ((dvec -> element_size) * 
+								new_capacity) + 1);
+
+		dvec -> capacity = new_capacity + 1;
+		dvec -> size = new_capacity;
+	}
+
+	if (NULL == dvec)
+	{
+		return -1;
+	}
+
+	return 0;
+}
+
+size_t DvecSize(const d_vector_t *dvec)
+{
+	assert(NULL != dvec);
+
+	return (dvec -> size);
+}
+
+size_t DvecCapacity(const d_vector_t *dvec)
+{
+	assert(NULL != dvec);
+
+	return (dvec -> capacity);
+}
+
