@@ -8,6 +8,7 @@
 #include <stdlib.h> /* malloc */
 #include <string.h> /* memcpy */
 #include <assert.h> /* assert */
+
 #include "stack.h"
 
 struct stackstruct
@@ -72,7 +73,6 @@ void StackPush(stack_t *stack, const void *data)
 	assert (NULL != stack);
 	assert (NULL != data);
 	assert (stack -> end >= stack -> current);
-
 
 	memcpy(stack -> current, data, stack -> element_size);
 	stack -> current = (char*)stack -> current + stack -> element_size; 

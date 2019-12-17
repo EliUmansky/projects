@@ -8,14 +8,13 @@ int main()
 {
 	d_vector_t *dvec = NULL;
 	size_t i = 0;	
-	int data1[10] = {1, 8, 27, 64, 125, 216, 343, 512, 729, 1000}; 
-	float data2[10] = {1.1, 8.2, 27.3, 64.4, 125.5, 216.6, 343.7, 512.8, 
-				       729.9, 1000.0};
+	int data[10] = {1, 8, 27, 64, 125, 216, 343, 512, 729, 1000}; 
 	int *value = NULL;
+
 
 	dvec = DvecCreate(4, 2);
 	printf("The pointer returned from DvecCreate shouldn't be NULL: ");
-	NULL_TEST(DvecCreate(4, 2), NULL);
+	NULL_TEST(dvec, NULL);
 	
 
 	printf("Size should be 0: ");
@@ -25,35 +24,58 @@ int main()
 
 	printf("Let's start pushing some data:\n");	
 
-	for (; i < 6; ++i)
+	for (; i < 7; ++i)
 	{
-		DvecPushBack(dvec, (void*)&data1[i]);
-		printf("After pushing %d elements- size should be %ld: ", i + 1);
+		DvecPushBack(dvec, (void*)&data[i]);
+		printf("After pushing %lu elements- size should be %lu: ",
+			   i + 1, i + 1);
 		RUN_TEST(DvecSize(dvec), i + 1);
 		printf("Capacity should be 8: ");
 		RUN_TEST(DvecCapacity(dvec), 8);
 	}
-/*
-	DvecPushBack(dvec, (void*)&num2);
-	printf("Size is %ld\n", DvecSize(dvec));
-	printf("Capacity is %ld\n", DvecCapacity(dvec));
+		
+	DvecPushBack(dvec, (void*)&data[i]);
+	printf("After pushing %lu elements- size should be %lu:", i + 1, i + 1);
+	RUN_TEST(DvecSize(dvec), i + 1);
+	printf("Capacity should be 16: ");
+	RUN_TEST(DvecCapacity(dvec), 16);
 
-	DvecPushBack(dvec, (void*)&num1);
-	printf("Size is %ld\n", DvecSize(dvec));
-	printf("Capacity is %ld\n", DvecCapacity(dvec));
+	DvecReserve(dvec, 100);
+	printf("After calling Reserve function with 100- capacity should be 100: ");
+	RUN_TEST(DvecCapacity(dvec), 100);
 
-	DvecPushBack(dvec, (void*)&num2);
-	printf("Size is %ld\n", DvecSize(dvec));
-	printf("Capacity is %ld\n", DvecCapacity(dvec));
+	DvecPopBack(dvec);
+	printf("After calling PopBack function- capacity should be 50: ");
+	RUN_TEST(DvecCapacity(dvec), 50);
+	printf("Size should be %lu: ", i);
+	RUN_TEST(DvecSize(dvec), i);
 
-	value = DvecGetItemAddress(dvec, 1);
-	printf("%d", *value);
-	value = DvecGetItemAddress(dvec, 2);
-	printf("%d", *value);
+	DvecPopBack(dvec);
+	printf("After calling PopBack function again- capacity should be 25: ");
+	RUN_TEST(DvecCapacity(dvec), 25);
+	printf("Size should be %lu: ", i - 1);
+	RUN_TEST(DvecSize(dvec), i - 1);
+
+	DvecReserve(dvec, 4);
+	printf("After calling Reserve function with 4- capacity should be 7: ");
+	RUN_TEST(DvecCapacity(dvec), 7);
+	printf("Size should be still %lu: ", i - 1);
+	RUN_TEST(DvecSize(dvec), i - 1);
+
+	DvecPopBack(dvec);
+	DvecPopBack(dvec);
+	DvecPopBack(dvec);	
+	printf("After calling PopBack 3 times- capacity should be 7: ");
+	RUN_TEST(DvecCapacity(dvec), 7);
+	printf("Size should be 3: ");
+	RUN_TEST(DvecSize(dvec), 3);
+
+	value = (int*)(DvecGetItemAddress(dvec, 2));
+	printf("The element of index 2 should be %d: ", data[2]);
+	RUN_TEST(*value, data[2]);
 
 	DvecDestroy(dvec);
-	printf("Size is %ld\n", DvecSize(dvec));
-	printf("Capacity is %ld\n", DvecCapacity(dvec));*/
+
 
 	return 0;
 }

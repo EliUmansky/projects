@@ -8,8 +8,13 @@
 #include <stdlib.h> /* malloc */
 #include <string.h> /* memcpy */
 #include <assert.h> /* assert */
+
 #include "vector.h"	/* function declarations */
 
+#define MIN_CAPACITY (8)
+#define DOUBLE_CAPACITY ((dvec -> capacity) * 2)
+#define QUARTER_CAPACITY ((dvec -> capacity) / 4)
+#define HALF_CAPACITY ((dvec -> capacity) / 2)
 
 struct d_vector
 {
@@ -25,9 +30,9 @@ d_vector_t *DvecCreate(size_t element_size, size_t num_of_elements)
 	void *arr = NULL;
 
 	assert(0 < element_size);
+	assert(0 < num_of_elements);
 
 	dvec = (d_vector_t*)malloc(sizeof(d_vector_t));
-
 	if (NULL == dvec)
 	{
 		return NULL;
@@ -39,7 +44,6 @@ d_vector_t *DvecCreate(size_t element_size, size_t num_of_elements)
 	}
 
 	arr = (void*)malloc(num_of_elements * element_size);
-
 	if (NULL == arr)
 	{
 		free(dvec);		
@@ -65,6 +69,8 @@ void DvecDestroy(d_vector_t *dvec)
 
 int DvecPushBack(d_vector_t *dvec, const void *data)
 {
+	void *temp_start = NULL;	
+
 	assert(NULL != dvec);
 	assert(NULL != data);	
 	assert((dvec -> capacity) > (dvec -> size));
@@ -75,39 +81,41 @@ int DvecPushBack(d_vector_t *dvec, const void *data)
 
 	if ((dvec -> capacity) == (dvec -> size))
 	{
-		dvec -> start = realloc(dvec -> start, 2 * (dvec -> capacity) * 
-							   (dvec -> element_size));
-
-		(dvec -> capacity) *= 2;
-	}
-
-	if (NULL == (dvec -> start))
-	{
-		return -1;
-	}
+		temp_start = realloc(dvec -> start, DOUBLE_CAPACITY * 
+							 (dvec -> element_size));
+		if (NULL == (dvec -> start))
+		{
+			return -1;
+		}
+		
+		dvec -> start = temp_start;
+		(dvec -> capacity) = DOUBLE_CAPACITY;
+	}	
 	
 	return 0;
 }
 
 int DvecPopBack(d_vector_t *dvec)
 {
+	void *temp_start = NULL;	
+
 	assert(NULL != dvec);
 	assert(0 < (dvec -> size));
 
 	--(dvec -> size);
 
-	if (((dvec -> capacity) / 4) >= (dvec -> size))
+	if (QUARTER_CAPACITY > (dvec -> size))
 	{
-		dvec -> start = realloc(dvec -> start, (dvec -> capacity) * 
-							   (dvec -> element_size) / 2);
+		temp_start = realloc(dvec -> start, HALF_CAPACITY *
+							 (dvec -> element_size));
+		if (NULL == (dvec -> start))
+		{
+			return -1;
+		}
 		
-		(dvec -> capacity) *= 2;
-	}
-
-	if (NULL == (dvec -> start))
-	{
-		return -1;
-	}
+		dvec -> start = temp_start;		
+		(dvec -> capacity) = HALF_CAPACITY;
+	}	
 	
 	return 0;
 }
@@ -122,28 +130,35 @@ void *DvecGetItemAddress(const d_vector_t *dvec, size_t index)
 
 int DvecReserve(d_vector_t *dvec, size_t new_capacity)
 {
+	void *temp_start = NULL;	
+
 	assert(NULL != dvec);
 	assert(0 < new_capacity);
 	
 	if (new_capacity > (dvec -> size))
 	{
-		dvec -> start = realloc(dvec -> start, (dvec -> element_size) * 								new_capacity);
-
+		temp_start = realloc(dvec -> start, (dvec -> element_size) * 
+							 new_capacity);
+		if (NULL == dvec)
+		{
+			return -1;
+		}
+		
+		dvec -> start = temp_start;	
 		dvec -> capacity = new_capacity;
 	}
 
 	else
 	{
-		dvec -> start = realloc(dvec -> start, ((dvec -> element_size) * 
-								new_capacity) + 1);
-
-		dvec -> capacity = new_capacity + 1;
-		dvec -> size = new_capacity;
-	}
-
-	if (NULL == dvec)
-	{
-		return -1;
+		temp_start = realloc(dvec -> start, ((dvec -> element_size) * 
+								(dvec -> size) + 1));
+		if (NULL == dvec)
+		{
+			return -1;
+		}
+		
+		dvec -> start = temp_start;	
+		dvec -> capacity = dvec -> size + 1;
 	}
 
 	return 0;
