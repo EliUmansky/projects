@@ -28,8 +28,7 @@ hash_table_t *HashCreate(size_t table_size, match_func_t is_matched,
 						 hash_func_t hash_func)
 {
 	hash_table_t *hash = NULL;
-	int status = SUCCESS;
-
+	
 	assert (0 < table_size);
 	assert (NULL != is_matched);
 	assert (NULL != hash_func);
@@ -50,8 +49,7 @@ hash_table_t *HashCreate(size_t table_size, match_func_t is_matched,
 		return NULL;
 	}
 
-	status = InitHashArr(hash->hash_arr, table_size);
-	if (SUCCESS == status)
+	if (SUCCESS == InitHashArr(hash->hash_arr, table_size))
 	{
 		return hash;
 	}
@@ -94,9 +92,17 @@ size_t HashSize(const hash_table_t *hash)
 
 int HashIsEmpty(const hash_table_t *hash)
 {
-	assert (NULL != hash);
+	size_t i = 0;
+	int status = 1;
 
-	return (0 == HashSize(hash));
+	assert(NULL != hash);
+
+	for (i = 0; i < hash->table_size && 1 == status ; ++i)
+	{
+		status = DListIsEmpty(hash->hash_arr[i]);
+	}
+
+	return status;
 }
 
 int HashForEach(hash_table_t *hash, action_func_t action_func, void *param)
@@ -158,7 +164,10 @@ void HashRemove(hash_table_t *hash, const void *key)
 	index = FindIndex(hash, key);
 	node_to_remove = FindNode(hash, key, index);
 
-	DListRemove(node_to_remove);
+	if (!DListIsSameIterator(node_to_remove, DListEnd(hash->hash_arr[index])))
+	{
+		DListRemove(node_to_remove);
+	}
 }
 
 static int InitHashArr(dlist_t **hash_arr, size_t table_size)
@@ -170,8 +179,9 @@ static int InitHashArr(dlist_t **hash_arr, size_t table_size)
 		hash_arr[i] = DListCreate();
 		if (NULL == hash_arr[i])
 		{
-			for (; 0 != i; --i)
+			while  (0 < i)
 			{
+				--i;
 				DListDestroy(hash_arr[i]);
 			}
 			return MALLOC_FAIL;

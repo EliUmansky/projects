@@ -37,7 +37,7 @@ int main()
     SizeIsEmpty();
     SimpleDataFindRemove();
     ComplexDataFindRemove();
-/*    ForEach();
+/*   ForEach();
  */   MultipleElements();
     Dictionary();
 
@@ -178,8 +178,8 @@ void MultipleElements()
 void Dictionary()
 {
 	char *buffer = NULL;
-    char copy[40];
-	char str[40];
+    char copy[40] = {0};
+	char str[40] = {0};
 	size_t i = 0;
 	hash_table_t *hash = HashCreate(TABLE_SIZE, &MatchWord, &HashFunc);
     FILE *fptr = NULL;
@@ -192,7 +192,7 @@ void Dictionary()
 	{
 		printf("malloc failed");
 	}
-    memset(str, '\0', sizeof(str));
+
     strcpy(str, "House");
 
 	fptr = fopen("dict.txt", "r");
@@ -204,17 +204,22 @@ void Dictionary()
 
 	while (!feof(fptr))
 	{
-/*        memset(buffer, '\0', sizeof(buffer));
-*/		fgets(buffer + (i * 40), 40, fptr);
-        memset(copy, '\0', sizeof(copy));
-        strncpy(copy, buffer + (i * 40) , 40);
-   		HashInsert(hash, buffer + (i * 40));
+		fscanf(fptr, "%s", buffer + (i * 40));
+  		HashInsert(hash, buffer + (i * 40));
 		++i;
 	}
-	test("House", HashFind(hash, str), "Found House?");
-/*    addresstest(NULL, HashFind(hash, copy), "Found House?");
-	printf("%s", copy);
-*/
+
+	printf("\nType a word\n");
+	scanf("%s", &str);
+	if (NULL != HashFind(hash, str))
+	{
+		printf("Found %s", str);
+	}
+	else
+	{
+		printf("\nGo back to 1st grade, mofo\n");
+	}
+
 	free(buffer);
 	fclose(fptr);
 	HashDestroy(hash);
@@ -261,7 +266,7 @@ size_t HashFunc(const void *data)
 
 	while (*(char *)data != '\0')
 	{
-		hash = ((hash << 4) + *(int *)(data)) % TABLE_SIZE;
+		hash = ((hash << 4) + *(char *)(data)) % TABLE_SIZE;
 		data = (char *)data + 1;
 	}
 
