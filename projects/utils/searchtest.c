@@ -23,6 +23,7 @@ void BSearchTest()
 {
 	int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int arr2[11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};	
+	int arr3[1] = {3};	
 	int i = 0, num = 11, num2 = 0;
 
 	puts("\nBinary search");
@@ -46,11 +47,17 @@ void BSearchTest()
 	}
 	addresstest(NULL, BSearch(arr2, 11, sizeof(int), &CompareFunc, &num2),
 	"Looking for non-existing element\n");
+
+	test(3, *(int*)JumpSearch(arr3, 1, sizeof(int), &CompareFunc, arr3),
+	"Looking for existing element");
+	addresstest(NULL, JumpSearch(arr3, 1, sizeof(int), &CompareFunc, &num2),
+	"Looking for non-existing element\n");
 }
 void RecBSearchTest()
 {
 	int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int arr2[11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};	
+	int arr3[1] = {3};	
 	int i = 0, num = 11, num2 = 0;
 
 	puts("\nRec binary search");
@@ -73,6 +80,11 @@ void RecBSearchTest()
 		"Looking for existing element");
 	}
 	addresstest(NULL, RecBSearch(arr2, 11, sizeof(int), &CompareFunc, &num2),
+	"Looking for non-existing element\n");
+
+	test(3, *(int*)JumpSearch(arr3, 1, sizeof(int), &CompareFunc, arr3),
+		"Looking for existing element");
+	addresstest(NULL, JumpSearch(arr3, 1, sizeof(int), &CompareFunc, &num2),
 	"Looking for non-existing element\n");
 }
 

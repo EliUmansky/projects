@@ -16,7 +16,7 @@ void *BSearch(const void *base, size_t nmemb, size_t size,
 	char *start = (void*)base, *end = (char*)base + (nmemb - 1) * size;
 	int cmp_value = NOT_FOUND;
 
-	while (searcher <= end && searcher >= start)	
+	while (searcher <= end && searcher >= start && 0 != memb_left)	
 	{
 		cmp_value = cmp_func(key, searcher);
 		if (FOUND == cmp_value)
@@ -26,6 +26,11 @@ void *BSearch(const void *base, size_t nmemb, size_t size,
 		memb_left /= 2;
 		next_jump = (size == next_jump) ? next_jump : memb_left / 2 * size;
 		searcher = (0 < cmp_value) ? searcher + next_jump : searcher - next_jump;
+	}
+
+	if (0 == memb_left)
+	{
+		return (0 == cmp_func(key, searcher)) ? searcher : NULL;
 	}
 
 	return (searcher > end || searcher < start) ? NULL : searcher;
