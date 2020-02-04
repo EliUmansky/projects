@@ -19,7 +19,9 @@
 #define SUCCESS (0)
 #define MALLOC_FAIL (-1)
 #define CONVERSION_FAIL (-2)
-
+#define CONN_PARAM ((connection_data_t*)conn_param)
+#define LAN_PARAM ((lan_data_t*)lan_param)
+/* -------------------------------------------------------------------------- */
 struct pac_man
 {
 	hash_table_t *connection_table;
@@ -39,15 +41,17 @@ typedef struct lan_data
 	ip_t saved_src_ip;
 	port_t saved_src_port;
 } lan_data_t;
-
+/* -------------------------------------------------------------------------- */
 static size_t HashFunc(const void *key);
-static int MatchConnection(const void *data, const void *param);
-static int MatchLan(const void *data, const void *param);
+static int MatchConnection(const void *data, const void *conn_param);
+static int MatchLan(const void *data, const void *lan_param);
 static int FreeSockets(void *data, void *param);
 static lan_data_t *InitAndInsertLanData(pac_man_t *pac_man, socket_t *socket);
-static connection_data_t *InitAndInsertConnData(pac_man_t *pac_man, lan_data_t *lan_data,
-                                                socket_t *socket);
-
+static connection_data_t *InitAndInsertConnData(pac_man_t *pac_man, 
+						  lan_data_t *lan_data, socket_t *socket);
+static void SetSearchLan(socket_t *search_lan, pac_man_t *pac_man,
+						 connection_data_t *conn_to_remove);
+/* -------------------------------------------------------------------------- */
 pac_man_t *PacManCreate(ip_t nat_ip)
 {
 	pac_man_t *pac_man = NULL;
@@ -59,7 +63,8 @@ pac_man_t *PacManCreate(ip_t nat_ip)
 	}
 
 	pac_man->nat_ip = nat_ip;
-	pac_man->connection_table = HashCreate(TWO_BYTES_MAX_VAL, &MatchConnection, &HashFunc);
+	pac_man->connection_table = HashCreate(TWO_BYTES_MAX_VAL, &MatchConnection, 
+										   &HashFunc);
 	if (NULL == pac_man->connection_table)
 	{
 		memset(pac_man, 0, sizeof(pac_man_t));
@@ -78,7 +83,7 @@ pac_man_t *PacManCreate(ip_t nat_ip)
 
 	return pac_man;
 }
-
+/* -------------------------------------------------------------------------- */
 void PacManDestroy(pac_man_t *pac_man)
 {
 	assert (NULL != pac_man);
@@ -92,7 +97,7 @@ void PacManDestroy(pac_man_t *pac_man)
 	memset(pac_man, 0, sizeof(pac_man_t));
 	free(pac_man);
 }
-
+/* -------------------------------------------------------------------------- */
 int PacManConvertOut(pac_man_t *pac_man, socket_t *socket)
 {
 	connection_data_t *conn_data = NULL;
@@ -126,6 +131,53 @@ int PacManConvertOut(pac_man_t *pac_man, socket_t *socket)
 
 	return SUCCESS;
 }
+/* -------------------------------------------------------------------------- */
+void PacManRelease(pac_man_t *pac_man, const socket_t *socket)
+{
+	connection_data_t *conn_to_remove = NULL;
+	lan_data_t *lan_to_remove = NULL;
+	socket_t search_lan = {0};
+
+	assert (NULL != pac_man);
+	assert (NULL != socket);
+
+	conn_to_remove = HashFind(CONNEC_TBL, socket);
+	if (NULL == conn_to_remove)
+	{
+		return;
+	}
+	
+	SetSearchLan(&search_lan, pac_man, conn_to_remove);	
+
+	lan_to_remove = HashFind(LAN_TBL, &search_lan);
+
+	HashRemove(CONNEC_TBL, socket);
+	HashRemove(LAN_TBL, &search_lan);
+
+	free(conn_to_remove);
+	free(lan_to_remove);
+}
+/* -------------------------------------------------------------------------- */
+int PacManConvertIn(const pac_man_t *pac_man, socket_t *socket)
+{
+	lan_data_t *lan_data = NULL;
+
+	assert (NULL != pac_man);
+	assert (NULL != socket);
+
+	lan_data = HashFind(LAN_TBL, socket);
+
+	if (NULL == lan_data)
+	{
+		return CONVERSION_FAIL;
+	}
+
+	socket->dest_ip = lan_data->saved_src_ip;
+	socket->dest_port = lan_data->saved_src_port;
+
+	return SUCCESS;
+}
+/* -------------------------------------------------------------------------- */
 static lan_data_t *InitAndInsertLanData(pac_man_t *pac_man, socket_t *socket)
 {
     lan_data_t *new_lan_data = (lan_data_t*)malloc(sizeof(lan_data_t));
@@ -156,11 +208,12 @@ static lan_data_t *InitAndInsertLanData(pac_man_t *pac_man, socket_t *socket)
 
     return new_lan_data;
 }
-
-static connection_data_t *InitAndInsertConnData(pac_man_t *pac_man, lan_data_t *lan_data,
-                                                socket_t *socket)
+/* -------------------------------------------------------------------------- */
+static connection_data_t *InitAndInsertConnData(pac_man_t *pac_man,
+						  lan_data_t *lan_data, socket_t *socket)
 {
-    connection_data_t *new_conn_data = (connection_data_t*)malloc(sizeof(connection_data_t));
+    connection_data_t *new_conn_data = 
+	(connection_data_t*)malloc(sizeof(connection_data_t));
 	if (NULL == new_conn_data)
 	{
 		free(lan_data);
@@ -182,72 +235,32 @@ static connection_data_t *InitAndInsertConnData(pac_man_t *pac_man, lan_data_t *
 
     return new_conn_data;
 }
-
-void PacManRelease(pac_man_t *pac_man, const socket_t *socket)
+/* -------------------------------------------------------------------------- */
+static void SetSearchLan(socket_t *search_lan, pac_man_t *pac_man,
+						 connection_data_t *conn_to_remove)
 {
-	connection_data_t *conn_to_remove = NULL;
-	lan_data_t *lan_to_remove = NULL;
-	socket_t search_lan = {0};
-
-	assert (NULL != pac_man);
-	assert (NULL != socket);
-
-	conn_to_remove = HashFind(CONNEC_TBL, socket);
-	if (NULL == conn_to_remove)
-	{
-		return;
-	}
-
-	search_lan.dest_ip = NAT_IP;
-	search_lan.dest_port = conn_to_remove->port_key;
-	search_lan.src_ip = conn_to_remove->socket_key.dest_ip;
-	search_lan.src_port = conn_to_remove->socket_key.dest_port;
-
-	lan_to_remove = HashFind(LAN_TBL, &search_lan);
-
-	HashRemove(CONNEC_TBL, socket);
-	HashRemove(LAN_TBL, &search_lan);
-
-	free(conn_to_remove);
-	free(lan_to_remove);
+	search_lan->dest_ip = NAT_IP;
+	search_lan->dest_port = conn_to_remove->port_key;
+	search_lan->src_ip = conn_to_remove->socket_key.dest_ip;
+	search_lan->src_port = conn_to_remove->socket_key.dest_port;
 }
 
-int PacManConvertIn(const pac_man_t *pac_man, socket_t *socket)
-{
-	lan_data_t *lan_data = NULL;
-
-	assert (NULL != pac_man);
-	assert (NULL != socket);
-
-	lan_data = HashFind(LAN_TBL, socket);
-
-	if (NULL == lan_data)
-	{
-		return CONVERSION_FAIL;
-	}
-
-	socket->dest_ip = lan_data->saved_src_ip;
-	socket->dest_port = lan_data->saved_src_port;
-
-	return SUCCESS;
-}
-
-static int MatchConnection(const void *data, const void *param)
+static int MatchConnection(const void *data, const void *conn_param)
 {
 	return
-	(((socket_t*)data)->src_ip == ((connection_data_t*)param)->socket_key.src_ip) &&
-	(((socket_t*)data)->dest_ip == ((connection_data_t*)param)->socket_key.dest_ip) &&
-	(((socket_t*)data)->src_port == ((connection_data_t*)param)->socket_key.src_port) &&
-	(((socket_t*)data)->dest_port == ((connection_data_t*)param)->socket_key.dest_port);
+	((socket_t*)data)->src_ip == (CONN_PARAM->socket_key.src_ip) &&
+	((socket_t*)data)->dest_ip == (CONN_PARAM->socket_key.dest_ip) &&
+	((socket_t*)data)->src_port == (CONN_PARAM->socket_key.src_port) &&
+	((socket_t*)data)->dest_port == (CONN_PARAM->socket_key.dest_port);
 }
 
-static int MatchLan(const void *data, const void *param)
+static int MatchLan(const void *data, const void *lan_param)
 {
 	return
-	(((socket_t*)data)->src_ip == ((lan_data_t*)param)->socket_key.src_ip) &&
-	(((socket_t*)data)->dest_ip == ((lan_data_t*)param)->socket_key.dest_ip) &&
-	(((socket_t*)data)->src_port == ((lan_data_t*)param)->socket_key.src_port) &&
-	(((socket_t*)data)->dest_port == ((lan_data_t*)param)->socket_key.dest_port);
+	((socket_t*)data)->src_ip == (LAN_PARAM->socket_key.src_ip) &&
+	((socket_t*)data)->dest_ip == (LAN_PARAM->socket_key.dest_ip) &&
+	((socket_t*)data)->src_port == (LAN_PARAM->socket_key.src_port) &&
+	((socket_t*)data)->dest_port == (LAN_PARAM->socket_key.dest_port);
 }
 
 static size_t HashFunc(const void *key)
