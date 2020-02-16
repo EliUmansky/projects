@@ -8,9 +8,9 @@
 
 void OnlyFork();
 void ForkAndExec();
-/*void ParentHandler(int signal_num);
+void ParentHandler(int signal_num);
 void ChildHandler(int signal_num);
-*/
+
 int main()
 {	
 /*	OnlyFork();
@@ -38,6 +38,7 @@ void OnlyFork()
 		else
 		{
 			parent_pid = getppid();
+			sleep(1);
 			kill(parent_pid, SIGUSR2);
 			pause();
 		}
