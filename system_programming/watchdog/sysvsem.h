@@ -30,16 +30,18 @@ int SysVSemDestroy(semid_t sem_id);
 
 /* - attemps to decrease the semaphore. if the semaphore is already -1 ------ */
 /* - the function blocks the proccess untill semaphore increases ------------ */
+/* - undo sould be TRUE (1) or FALSE (0) ------------------------------------ */
 /* - time complexity O(1) --------------------------------------------------- */
-int SysVSemWait(semid_t sem_id, size_t sem_index);
+int SysVSemWait(semid_t sem_id, size_t sem_index, int undo);
 
 /* - the function blocks the proccess until the semaphore is 0 -------------- */
 /* - time complexity O(1) --------------------------------------------------- */
 int SysVSemWaitForZero(semid_t sem_id, size_t sem_index);
 
 /* - increases the semaphore by 1 ------------------------------------------- */
+/* - undo sould be TRUE (1) or FALSE (0) ------------------------------------ */
 /* - time complexity O(1) --------------------------------------------------- */
-int SysVSemPost(semid_t sem_id, size_t sem_index);
+int SysVSemPost(semid_t sem_id, size_t sem_index, int undo);
 
 /* - returns the value of the semaphore at index sem_index ------------------ */
 /* - time complexity O(1) --------------------------------------------------- */

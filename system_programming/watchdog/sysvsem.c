@@ -40,7 +40,7 @@ union semun
 static semid_t InitSems(semid_t sem_id, size_t num_of_sems, 
 						const int *init_values_list);
 static semid_t GetSemID(key_t key, size_t num_of_sems);
-static int SemOperate(semid_t sem_id, size_t sem_index, int operation);
+static int SemOperate(semid_t sem_id, size_t sem_index, int operation, int undo);
 /* -------------------------------------------------------------------------- */
 semid_t SysVSemCreate(size_t num_of_sems, const int *init_values_list, 
                       const char *path)
@@ -86,9 +86,9 @@ int SysVSemDestroy(semid_t sem_id)
 	count_sem_index = num_of_sems - 2;
 	binary_index = num_of_sems - 1;
 
-	status = SysVSemWait(sem_id, binary_index);
+	status = SysVSemWait(sem_id, binary_index, 1);
 	CHECK(status);
-	status = SysVSemWait(sem_id, count_sem_index);
+	status = SysVSemWait(sem_id, count_sem_index, 1);
 	CHECK(status);
 	
 	if (0 == SysVSemGetVal(sem_id, count_sem_index))
@@ -96,25 +96,25 @@ int SysVSemDestroy(semid_t sem_id)
 		return semctl(sem_id, 0, IPC_RMID);	
 	}
 
-	status = SysVSemPost(sem_id, binary_index);		
+	status = SysVSemPost(sem_id, binary_index, 1);		
 	CHECK(status);
 
 	return NOT_LAST_PROCESS;
 }
 /* -------------------------------------------------------------------------- */
-int SysVSemWait(semid_t sem_id, size_t sem_index)
+int SysVSemWait(semid_t sem_id, size_t sem_index, int undo)
 {
-	return SemOperate(sem_id, sem_index, WAIT);
+	return SemOperate(sem_id, sem_index, WAIT, undo);
 }
 /* -------------------------------------------------------------------------- */
 int SysVSemWaitForZero(semid_t sem_id, size_t sem_index)
 {
-	return SemOperate(sem_id, sem_index, WAIT_FOR_ZERO);
+	return SemOperate(sem_id, sem_index, WAIT_FOR_ZERO, 1);
 }
 /* -------------------------------------------------------------------------- */
-int SysVSemPost(semid_t sem_id, size_t sem_index)
+int SysVSemPost(semid_t sem_id, size_t sem_index, int undo)
 {
-	return SemOperate(sem_id, sem_index, POST);
+	return SemOperate(sem_id, sem_index, POST, undo);
 }
 /* -------------------------------------------------------------------------- */
 int SysVSemGetVal(semid_t sem_id, size_t sem_index)
@@ -159,7 +159,7 @@ static semid_t InitSems(semid_t sem_id, size_t num_of_sems,
 	CHECK(status);
 	status = SysVSemSetVal(sem_id, num_of_sems + 1, 1);
 	CHECK(status);
-	status = SysVSemPost(sem_id, num_of_sems);
+	status = SysVSemPost(sem_id, num_of_sems, 1);
 	CHECK(status);
 
 	return sem_id;
@@ -199,23 +199,23 @@ static semid_t GetSemID(key_t key, size_t num_of_sems)
         return FAILURE;
     }
 
-	status = SysVSemWait(sem_id, num_of_sems + 1);
+	status = SysVSemWait(sem_id, num_of_sems + 1, 1);
 	CHECK(status);	
-	status = SysVSemPost(sem_id, num_of_sems);
+	status = SysVSemPost(sem_id, num_of_sems, 1);
 	CHECK(status);
-	status = SysVSemPost(sem_id, num_of_sems + 1);
+	status = SysVSemPost(sem_id, num_of_sems + 1, 1);
 	CHECK(status);
 
 	return sem_id;
 }
 /* -------------------------------------------------------------------------- */
-static int SemOperate(semid_t sem_id, size_t sem_index, int operation)
+static int SemOperate(semid_t sem_id, size_t sem_index, int operation, int undo)
 {
 	struct sembuf buf = {0};
 
 	buf.sem_num = sem_index;
 	buf.sem_op = operation;
-	buf.sem_flg = SEM_UNDO;
+	buf.sem_flg = (undo) ? SEM_UNDO : 0;
 	
 	return semop(sem_id, &buf, 1);
 }
