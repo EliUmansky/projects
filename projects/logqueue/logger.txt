@@ -1,0 +1,782 @@
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 0, Log file opened
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 1, sem_id is received, sem_id  = 163863
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 0, Signal handler 1 set
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 0, Signal handler 2 set
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 1, Scheduler created
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 0, Task1 added
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 0, Task2 added
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 1, Watchdog created
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [setup section], priority = 1, Watchdog created
+Mon Feb 24 18:58:36 2020
+ [WD] [pid 21816] [run section], priority = 1, Scheduler is about to run
+Mon Feb 24 18:58:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21814
+Mon Feb 24 18:58:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21814
+Mon Feb 24 18:58:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:58:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:58:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22128
+Mon Feb 24 18:58:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22128
+Mon Feb 24 18:58:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22128
+Mon Feb 24 18:58:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22128
+Mon Feb 24 18:58:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22128
+Mon Feb 24 18:58:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:58:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:58:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22756
+Mon Feb 24 18:58:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22756
+Mon Feb 24 18:58:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22756
+Mon Feb 24 18:58:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22756
+Mon Feb 24 18:58:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22756
+Mon Feb 24 18:59:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23381
+Mon Feb 24 18:59:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23381
+Mon Feb 24 18:59:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23381
+Mon Feb 24 18:59:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23381
+Mon Feb 24 18:59:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23381
+Mon Feb 24 18:59:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24016
+Mon Feb 24 18:59:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24016
+Mon Feb 24 18:59:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24016
+Mon Feb 24 18:59:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24016
+Mon Feb 24 18:59:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24016
+Mon Feb 24 18:59:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24643
+Mon Feb 24 18:59:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24643
+Mon Feb 24 18:59:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24643
+Mon Feb 24 18:59:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24643
+Mon Feb 24 18:59:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 24643
+Mon Feb 24 18:59:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25265
+Mon Feb 24 18:59:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25265
+Mon Feb 24 18:59:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25265
+Mon Feb 24 18:59:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25265
+Mon Feb 24 18:59:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25265
+Mon Feb 24 18:59:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25890
+Mon Feb 24 18:59:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25890
+Mon Feb 24 18:59:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25890
+Mon Feb 24 18:59:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25890
+Mon Feb 24 18:59:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 25890
+Mon Feb 24 18:59:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 18:59:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 18:59:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 26515
+Mon Feb 24 18:59:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 26515
+Mon Feb 24 18:59:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 26515
+Mon Feb 24 18:59:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 26515
+Mon Feb 24 18:59:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 26515
+Mon Feb 24 19:00:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27139
+Mon Feb 24 19:00:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27139
+Mon Feb 24 19:00:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27139
+Mon Feb 24 19:00:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27139
+Mon Feb 24 19:00:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27139
+Mon Feb 24 19:00:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27776
+Mon Feb 24 19:00:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27776
+Mon Feb 24 19:00:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27776
+Mon Feb 24 19:00:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27776
+Mon Feb 24 19:00:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 27776
+Mon Feb 24 19:00:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 28409
+Mon Feb 24 19:00:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 28409
+Mon Feb 24 19:00:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 28409
+Mon Feb 24 19:00:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 28409
+Mon Feb 24 19:00:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 28409
+Mon Feb 24 19:00:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29039
+Mon Feb 24 19:00:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29039
+Mon Feb 24 19:00:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29039
+Mon Feb 24 19:00:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29039
+Mon Feb 24 19:00:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29039
+Mon Feb 24 19:00:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29673
+Mon Feb 24 19:00:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29673
+Mon Feb 24 19:00:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29673
+Mon Feb 24 19:00:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29673
+Mon Feb 24 19:00:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 29673
+Mon Feb 24 19:00:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:00:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:00:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30296
+Mon Feb 24 19:00:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30296
+Mon Feb 24 19:00:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30296
+Mon Feb 24 19:00:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30296
+Mon Feb 24 19:00:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30296
+Mon Feb 24 19:01:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30923
+Mon Feb 24 19:01:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30923
+Mon Feb 24 19:01:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30923
+Mon Feb 24 19:01:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30923
+Mon Feb 24 19:01:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 30923
+Mon Feb 24 19:01:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 31552
+Mon Feb 24 19:01:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 31552
+Mon Feb 24 19:01:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 31552
+Mon Feb 24 19:01:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 31552
+Mon Feb 24 19:01:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 31552
+Mon Feb 24 19:01:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 32191
+Mon Feb 24 19:01:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 32191
+Mon Feb 24 19:01:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 32191
+Mon Feb 24 19:01:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 32191
+Mon Feb 24 19:01:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 32191
+Mon Feb 24 19:01:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 348
+Mon Feb 24 19:01:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 348
+Mon Feb 24 19:01:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 348
+Mon Feb 24 19:01:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 348
+Mon Feb 24 19:01:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 348
+Mon Feb 24 19:01:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1038
+Mon Feb 24 19:01:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1038
+Mon Feb 24 19:01:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1038
+Mon Feb 24 19:01:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1038
+Mon Feb 24 19:01:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1038
+Mon Feb 24 19:01:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:01:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:01:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1799
+Mon Feb 24 19:01:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1799
+Mon Feb 24 19:01:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1799
+Mon Feb 24 19:01:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1799
+Mon Feb 24 19:01:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 1799
+Mon Feb 24 19:02:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 2424
+Mon Feb 24 19:02:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 2424
+Mon Feb 24 19:02:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 2424
+Mon Feb 24 19:02:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 2424
+Mon Feb 24 19:02:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 2424
+Mon Feb 24 19:02:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3053
+Mon Feb 24 19:02:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3053
+Mon Feb 24 19:02:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3053
+Mon Feb 24 19:02:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3053
+Mon Feb 24 19:02:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3053
+Mon Feb 24 19:02:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3688
+Mon Feb 24 19:02:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3688
+Mon Feb 24 19:02:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3688
+Mon Feb 24 19:02:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3688
+Mon Feb 24 19:02:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 3688
+Mon Feb 24 19:02:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 4305
+Mon Feb 24 19:02:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 4305
+Mon Feb 24 19:02:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 4305
+Mon Feb 24 19:02:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 4305
+Mon Feb 24 19:02:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 4305
+Mon Feb 24 19:02:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5000
+Mon Feb 24 19:02:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5000
+Mon Feb 24 19:02:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5000
+Mon Feb 24 19:02:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5000
+Mon Feb 24 19:02:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5000
+Mon Feb 24 19:02:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:02:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:02:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5893
+Mon Feb 24 19:02:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5893
+Mon Feb 24 19:02:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5893
+Mon Feb 24 19:02:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5893
+Mon Feb 24 19:02:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 5893
+Mon Feb 24 19:03:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 6612
+Mon Feb 24 19:03:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 6612
+Mon Feb 24 19:03:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 6612
+Mon Feb 24 19:03:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 6612
+Mon Feb 24 19:03:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 6612
+Mon Feb 24 19:03:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7246
+Mon Feb 24 19:03:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7246
+Mon Feb 24 19:03:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7246
+Mon Feb 24 19:03:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7246
+Mon Feb 24 19:03:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7246
+Mon Feb 24 19:03:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7870
+Mon Feb 24 19:03:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7870
+Mon Feb 24 19:03:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7870
+Mon Feb 24 19:03:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7870
+Mon Feb 24 19:03:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 7870
+Mon Feb 24 19:03:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 8535
+Mon Feb 24 19:03:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 8535
+Mon Feb 24 19:03:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 8535
+Mon Feb 24 19:03:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 8535
+Mon Feb 24 19:03:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 8535
+Mon Feb 24 19:03:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9167
+Mon Feb 24 19:03:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9167
+Mon Feb 24 19:03:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9167
+Mon Feb 24 19:03:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9167
+Mon Feb 24 19:03:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9167
+Mon Feb 24 19:03:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:03:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:03:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9791
+Mon Feb 24 19:03:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9791
+Mon Feb 24 19:03:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9791
+Mon Feb 24 19:03:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9791
+Mon Feb 24 19:03:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 9791
+Mon Feb 24 19:04:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 10414
+Mon Feb 24 19:04:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 10414
+Mon Feb 24 19:04:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 10414
+Mon Feb 24 19:04:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 10414
+Mon Feb 24 19:04:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 10414
+Mon Feb 24 19:04:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11048
+Mon Feb 24 19:04:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11048
+Mon Feb 24 19:04:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11048
+Mon Feb 24 19:04:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11048
+Mon Feb 24 19:04:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11048
+Mon Feb 24 19:04:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11678
+Mon Feb 24 19:04:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11678
+Mon Feb 24 19:04:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11678
+Mon Feb 24 19:04:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11678
+Mon Feb 24 19:04:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 11678
+Mon Feb 24 19:04:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12307
+Mon Feb 24 19:04:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12307
+Mon Feb 24 19:04:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12307
+Mon Feb 24 19:04:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12307
+Mon Feb 24 19:04:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12307
+Mon Feb 24 19:04:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12932
+Mon Feb 24 19:04:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12932
+Mon Feb 24 19:04:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12932
+Mon Feb 24 19:04:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12932
+Mon Feb 24 19:04:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 12932
+Mon Feb 24 19:04:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:04:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:04:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 13583
+Mon Feb 24 19:04:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 13583
+Mon Feb 24 19:04:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 13583
+Mon Feb 24 19:04:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 13583
+Mon Feb 24 19:04:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 13583
+Mon Feb 24 19:05:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14219
+Mon Feb 24 19:05:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14219
+Mon Feb 24 19:05:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14219
+Mon Feb 24 19:05:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14219
+Mon Feb 24 19:05:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14219
+Mon Feb 24 19:05:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14851
+Mon Feb 24 19:05:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14851
+Mon Feb 24 19:05:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14851
+Mon Feb 24 19:05:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14851
+Mon Feb 24 19:05:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 14851
+Mon Feb 24 19:05:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 15504
+Mon Feb 24 19:05:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 15504
+Mon Feb 24 19:05:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 15504
+Mon Feb 24 19:05:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 15504
+Mon Feb 24 19:05:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 15504
+Mon Feb 24 19:05:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16137
+Mon Feb 24 19:05:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16137
+Mon Feb 24 19:05:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16137
+Mon Feb 24 19:05:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16137
+Mon Feb 24 19:05:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16137
+Mon Feb 24 19:05:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16786
+Mon Feb 24 19:05:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16786
+Mon Feb 24 19:05:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16786
+Mon Feb 24 19:05:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16786
+Mon Feb 24 19:05:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 16786
+Mon Feb 24 19:05:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:05:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:05:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 17413
+Mon Feb 24 19:05:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 17413
+Mon Feb 24 19:05:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 17413
+Mon Feb 24 19:05:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 17413
+Mon Feb 24 19:05:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 17413
+Mon Feb 24 19:06:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18037
+Mon Feb 24 19:06:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18037
+Mon Feb 24 19:06:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18037
+Mon Feb 24 19:06:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18037
+Mon Feb 24 19:06:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18037
+Mon Feb 24 19:06:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18670
+Mon Feb 24 19:06:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18670
+Mon Feb 24 19:06:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18670
+Mon Feb 24 19:06:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18670
+Mon Feb 24 19:06:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 18670
+Mon Feb 24 19:06:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19296
+Mon Feb 24 19:06:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19296
+Mon Feb 24 19:06:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19296
+Mon Feb 24 19:06:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19296
+Mon Feb 24 19:06:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19296
+Mon Feb 24 19:06:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19921
+Mon Feb 24 19:06:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19921
+Mon Feb 24 19:06:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19921
+Mon Feb 24 19:06:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19921
+Mon Feb 24 19:06:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 19921
+Mon Feb 24 19:06:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:41 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:41 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 20546
+Mon Feb 24 19:06:43 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 20546
+Mon Feb 24 19:06:45 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 20546
+Mon Feb 24 19:06:47 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 20546
+Mon Feb 24 19:06:49 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 20546
+Mon Feb 24 19:06:51 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:06:51 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:06:51 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21172
+Mon Feb 24 19:06:53 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21172
+Mon Feb 24 19:06:55 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21172
+Mon Feb 24 19:06:57 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21172
+Mon Feb 24 19:06:59 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21172
+Mon Feb 24 19:07:01 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:07:01 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:07:01 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21798
+Mon Feb 24 19:07:03 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21798
+Mon Feb 24 19:07:05 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21798
+Mon Feb 24 19:07:07 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21798
+Mon Feb 24 19:07:09 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 21798
+Mon Feb 24 19:07:11 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:07:11 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:07:11 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22437
+Mon Feb 24 19:07:13 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22437
+Mon Feb 24 19:07:15 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22437
+Mon Feb 24 19:07:17 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22437
+Mon Feb 24 19:07:19 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 22437
+Mon Feb 24 19:07:21 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:07:21 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:07:21 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23074
+Mon Feb 24 19:07:23 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23074
+Mon Feb 24 19:07:25 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23074
+Mon Feb 24 19:07:27 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23074
+Mon Feb 24 19:07:29 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23074
+Mon Feb 24 19:07:31 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive
+Mon Feb 24 19:07:31 2020
+ [WD] [pid 21816] [run section], priority = 1, Post semaphore
+Mon Feb 24 19:07:31 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23702
+Mon Feb 24 19:07:33 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23702
+Mon Feb 24 19:07:35 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23702
+Mon Feb 24 19:07:37 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23702
+Mon Feb 24 19:07:39 2020
+ [WD] [pid 21816] [run section], priority = 0, Signal1 sent to target  = 23702
+Mon Feb 24 19:07:41 2020
+ [WD] [pid 21816] [run section], priority = 2, Revive

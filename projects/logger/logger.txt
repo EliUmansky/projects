@@ -1,0 +1,162 @@
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Log file opened
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, sem_id is received, sem_id  = 163862
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Signal handler 1 set
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Signal handler 2 set
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Environmental variable set
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, Set Created flag
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 0, Log file opened
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 1, sem_id is received, sem_id  = 163862
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 0, Signal handler 1 set
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 0, Signal handler 2 set
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 1, Scheduler created
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 0, Task1 added
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 0, Task2 added
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 1, Watchdog created
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [setup section], priority = 1, Watchdog created
+Sun Feb 23 19:43:32 2020
+ [WD] [pid 23141] [run section], priority = 1, Scheduler is about to run
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, Watchdog created
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, Scheduler created
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Task1 added
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Task2 added
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, Watchdog created
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 1, Watchdog created
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [setup section], priority = 0, Thread Created
+Sun Feb 23 19:43:32 2020
+ [APP] [pid 23140] [run section], priority = 1, Scheduler is about to run
+Sun Feb 23 19:43:33 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:33 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:33 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:33 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:34 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:34 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 2
+Sun Feb 23 19:43:35 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:35 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 2
+Sun Feb 23 19:43:36 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:36 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 3
+Sun Feb 23 19:43:37 2020
+ [APP] [pid 23140] [run section], priority = 0, Positive life count, set to 0
+Sun Feb 23 19:43:37 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:37 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 3
+Sun Feb 23 19:43:37 2020
+ [WD] [pid 23141] [run section], priority = 0, Positive life count, set to 0
+Sun Feb 23 19:43:38 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:38 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:39 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:39 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:40 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:40 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 2
+Sun Feb 23 19:43:41 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:41 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 2
+Sun Feb 23 19:43:42 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:42 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 3
+Sun Feb 23 19:43:43 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:43 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 3
+Sun Feb 23 19:43:44 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:44 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 4
+Sun Feb 23 19:43:45 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:45 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 4
+Sun Feb 23 19:43:46 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:46 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 5
+Sun Feb 23 19:43:47 2020
+ [APP] [pid 23140] [run section], priority = 0, Positive life count, set to 0
+Sun Feb 23 19:43:47 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:47 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 5
+Sun Feb 23 19:43:47 2020
+ [WD] [pid 23141] [run section], priority = 0, Positive life count, set to 0
+Sun Feb 23 19:43:48 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:48 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:49 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:49 2020
+ [WD] [pid 23141] [run section], priority = 0, life count = 1
+Sun Feb 23 19:43:50 2020
+ [WD] [pid 23141] [run section], priority = 0, Signal1 sent to target  = 23140
+Sun Feb 23 19:43:50 2020
+ [APP] [pid 23140] [run section], priority = 0, life count = 2
+Sun Feb 23 19:43:51 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:53 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:55 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:57 2020
+ [APP] [pid 23140] [run section], priority = 0, Positive life count, set to 0
+Sun Feb 23 19:43:57 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:43:59 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:44:01 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:44:03 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:44:05 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 23141
+Sun Feb 23 19:44:07 2020
+ [APP] [pid 23140] [run section], priority = 2, Revive
+Sun Feb 23 19:44:07 2020
+ [APP] [pid 23140] [run section], priority = 1, Post semaphore
+Sun Feb 23 19:44:07 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 25310
+Sun Feb 23 19:44:09 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 25310
+Sun Feb 23 19:44:11 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 25310
+Sun Feb 23 19:44:13 2020
+ [APP] [pid 23140] [run section], priority = 0, Signal1 sent to target  = 25310

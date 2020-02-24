@@ -18,13 +18,14 @@
 #define NUM_OF_SEMS (2)
 #define SIG_PID (info->si_pid)
 #define CHECK_IF_FAILED(x) if(FAILURE == x) {return FAILURE;} 
+/*#define CHECK_IF_FAILED_EXEC(x, y) if(FAILURE == x) {y;return FAILURE;} */
 #define CHECK_IF_PTR_FAILED(x) if(NULL == x) {return FAILURE;} 
 #define CHECK_UID(x) if(UIDIsBad(*x)) {return FAILURE;}
 #define CHECK_THREAD(x) if(0 != x) {return FAILURE;}
 #define MAX_PATH_SIZE (80)
-#define WD_PATH "/home/student/git/system_programming/watchdog/wd_exec.out"
+#define WD_PATH "/home/student/git/wd/wd_exec.out"
 
-enum sems {APP, CREATED_FLAG};
+enum sems {APP, IS_CREATED_FLAG};
 
 int is_watchdog;
 static int life_count;
@@ -36,10 +37,10 @@ static scheduler_t *sched;
 static int SetPath(char **argv, char *path);
 static char *GetAppName(char *arg);
 static int InitSigaction(struct sigaction sa);
-static int SetupWD(semid_t sem_id);
+static int SetupWD(char **argv);
 static size_t SendLifeSignal(void *param);
 static void DestroyFunc(void *param);
-static void HandleLife(int sig, siginfo_t *info, void *context);
+static void ReceiveLifeSignal(int sig, siginfo_t *info, void *context);
 static void HandleDeath(int sig, siginfo_t *info, void *context);
 static void *SchedStart(void *param);
 static void Revive(char **argv);
@@ -61,13 +62,13 @@ int WDStart(char *argv[])
 	status = InitSigaction(sa);
 	CHECK_IF_FAILED(status);
 	
-	if (0 == SysVSemGetVal(sem_id, CREATED_FLAG))
+	if (0 == SysVSemGetVal(sem_id, IS_CREATED_FLAG))
 	{  
 		status = setenv("WATCHDOG_MASTER_PATH", path, 0);
 		CHECK_IF_FAILED(status);
-		status = SysVSemPost(sem_id, CREATED_FLAG, 0);	
+		status = SysVSemPost(sem_id, IS_CREATED_FLAG, 0);	
 		CHECK_IF_FAILED(status);
-		status = SetupWD(sem_id);
+		status = SetupWD(argv);
 		CHECK_IF_FAILED(status);
 	}
 	else
@@ -99,9 +100,9 @@ int WDEnd(size_t timeout)
 {
 	do 
 	{
+		kill(target, SIGUSR2);
 		--timeout;
 		sleep(1);
-		kill(target, SIGUSR2);
 	}
 	while (timeout && 2 != is_watchdog_dead);
 
@@ -156,10 +157,11 @@ static int InitSigaction(struct sigaction sa)
 	
 	sa.sa_flags = SA_SIGINFO;
 
-	sa.sa_sigaction = HandleLife;
+	sa.sa_sigaction = ReceiveLifeSignal;
 	status = sigaction(SIGUSR1, &sa, NULL); 
 	CHECK_IF_FAILED(status);
 
+	sigfillset(&sa.sa_mask);
 	sa.sa_sigaction = HandleDeath;
 	status = sigaction(SIGUSR2, &sa, NULL);   
  	CHECK_IF_FAILED(status);
@@ -167,23 +169,15 @@ static int InitSigaction(struct sigaction sa)
 	return status;
 }
 
-static int SetupWD(semid_t sem_id)
+static int SetupWD(char **argv)
 {
-	char *args[]={"./wd_exec.out", NULL};
-	int status = SUCCESS;
-
-	CHECK_IF_FAILED(status);
-	
 	target = fork();
 	if (0 == target)
 	{
-		execvp(args[0], args);
+		execvp(WD_PATH, argv);
 	}
 
-	SysVSemWait(sem_id, APP, 0);
-	CHECK_IF_FAILED(status);
-
-	return SUCCESS;
+	return SysVSemWait(sem_id, APP, 0);
 }
 
 static int SetScheduler(char **argv)
@@ -237,7 +231,7 @@ static void DestroyFunc(void *param)
 	fprintf(stderr, "destroy\n");
 }
 
-static void HandleLife(int sig, siginfo_t *info, void *context)
+static void ReceiveLifeSignal(int sig, siginfo_t *info, void *context)
 {
 	(void)sig;
 	(void)context;
