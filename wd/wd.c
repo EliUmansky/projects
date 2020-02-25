@@ -18,7 +18,6 @@
 #define NUM_OF_SEMS (2)
 #define SIG_PID (info->si_pid)
 #define CHECK_IF_FAILED(x) if(FAILURE == x) {return FAILURE;} 
-/*#define CHECK_IF_FAILED_EXEC(x, y) if(FAILURE == x) {y;return FAILURE;} */
 #define CHECK_IF_PTR_FAILED(x) if(NULL == x) {return FAILURE;} 
 #define CHECK_UID(x) if(UIDIsBad(*x)) {return FAILURE;}
 #define CHECK_THREAD(x) if(0 != x) {return FAILURE;}

@@ -36,7 +36,6 @@ typedef struct
 	int param;
 } data_t;
  
-FILE *logger;
 int is_watchdog;
 static int life_count;
 static pid_t target;
@@ -458,13 +457,16 @@ static void Revive(char **argv)
 static void Log(const char *message, int param)
 {
 	data_t data = {0};
+	void *void_data = NULL;
 
 	data.time = time(NULL);
 	data.param = param;
 
+	memcpy(&void_data, &data, 8);
+
 	pthread_mutex_lock(&mutex);
 	QueEnqueue(message_queue, message);
-	QueEnqueue(time_queue, *(void**)&data);
+	QueEnqueue(time_queue, void_data);
 	pthread_mutex_unlock(&mutex);
 
 	sem_post(&log_sem);
@@ -495,8 +497,11 @@ static void EndLog()
 
 static void *RunQueue(void *param)
 {
+	FILE *logger = NULL;
 	char buf[100] = {0};
 	char help_buf[20] = {0};
+	data_t data = {0};
+	void *void_data = NULL;
 
 	(void)param;
 
@@ -504,22 +509,26 @@ static void *RunQueue(void *param)
 	{
 		if (!QueIsEmpty(time_queue))
 		{
-			sprintf(help_buf, "%d", (*(data_t*)QuePeek(time_queue)).time);
+			void_data = QuePeek(time_queue);
+			memcpy(&data, &void_data, 8);
+			sprintf(help_buf, "%d", data.time);
 			strcpy(buf, help_buf);
 			strcpy(buf, AppOrWD());
 			strcpy(buf, QuePeek(message_queue));
 			QueDequeue(message_queue);
 		
-			if (0 <= (*(data_t*)QuePeek(time_queue)).param)
+			if (0 <= (data.param))
 			{			
-				sprintf(help_buf, "%d", (*(data_t*)QuePeek(time_queue)).param);
+				sprintf(help_buf, "%d", data.param);
 				strcpy(buf, help_buf);
 			}			
 			QueDequeue(time_queue);
 
+			logger = fopen("logger.txt", "a");
 			flockfile(logger);
 			fprintf(logger, buf);
 			funlockfile(logger);
+			fclose(logger);
 		}
 	}
 	
