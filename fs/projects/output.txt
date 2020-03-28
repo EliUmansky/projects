@@ -1,0 +1,9 @@
+shuffle
+
+one thread makes histogram
+multithreaded sort
+counting sort
+
+tests for different nums of threads
+linux dictionary- few copies
+break to buffers
