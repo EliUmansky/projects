@@ -15,7 +15,7 @@ class HashTest {
 
 	@SuppressWarnings("unlikely-arg-type")
 	@Test
-	void CreatePutRemoveSizeIsEmpty() {
+	void CreatePutRemoveSizeIsEmpty() {	
 		HashMap<Integer, String> hash = new HashMap<Integer, String>(10); 
 		Pair<Integer, String> pair1 = Pair.of(1, "A");
 		Pair<Integer, String> pair2 = Pair.of(2, "B");
@@ -45,7 +45,7 @@ class HashTest {
 		
 		hash.remove(pair2.getKey());
 		assertEquals(8, hash.size());
-		hash.remove(9);
+		assertNull(hash.remove(9));
 		assertEquals(8, hash.size());
 		hash.remove(pair3.getValue());
 		assertEquals("C", pair3.getValue());

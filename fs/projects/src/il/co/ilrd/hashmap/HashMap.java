@@ -1,5 +1,4 @@
 package il.co.ilrd.hashmap;
-
 import java.util.AbstractCollection;
 import java.util.AbstractSet;
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import il.co.ilrd.pair.Pair;
 
 public class HashMap<K,V> implements Map<K, V>{
@@ -18,9 +16,6 @@ public class HashMap<K,V> implements Map<K, V>{
 	private List<List<Pair<K, V>>> hashMap;
 	private final int capacity;
 	private final static int DEFAULT_CAPACITY = 16; 
-	private Set<Map.Entry<K, V>> entrySet;
-	private Set<K> keySet;
-	private Collection<V> values;
 	protected int mode = 0;
 	
 	public HashMap() {
@@ -38,10 +33,10 @@ public class HashMap<K,V> implements Map<K, V>{
 	
 	@Override
 	public void clear() {
+		++mode;
 		for (List<Pair<K, V>> bucket : hashMap) {
 			bucket.clear();
 		}
-		++mode;
 	}
 	
 	@Override
@@ -66,10 +61,7 @@ public class HashMap<K,V> implements Map<K, V>{
 
 	@Override
 	public Set<Entry<K, V>> entrySet() {
-		if (null == entrySet) {
-			entrySet = new EntrySet();
-		}
-		return entrySet;
+		return new EntrySet();
 	}
 
 	@Override
@@ -81,19 +73,14 @@ public class HashMap<K,V> implements Map<K, V>{
 
 	@Override
 	public boolean isEmpty() {
-		for (List<Pair<K, V>> bucket : hashMap) {
-			if (!bucket.isEmpty()) { return false; }
-		}
+		Iterator<Entry<K, V>> iter = entrySet().iterator();
 		
-		return true;
+		return !iter.hasNext();
 	}
 
 	@Override
 	public Set<K> keySet() {
-		if (null == keySet) {
-			keySet = new KeySet();
-		}
-		return keySet;
+		return new KeySet();
 	}
 
 	private int getIndex(Object key) {
@@ -107,9 +94,9 @@ public class HashMap<K,V> implements Map<K, V>{
 		Pair<K, V> pair = getPair(key);
 		V oldValue = null;
 		
+		++mode;
 		if (null != pair) { oldValue = pair.setValue(value); }
 		else { hashMap.get(index).add(Pair.of(key, value)); }
-		++mode;
 		
 		return oldValue;
 	}
@@ -134,23 +121,25 @@ public class HashMap<K,V> implements Map<K, V>{
 	}
 	@Override
 	public void putAll(Map<? extends K, ? extends V> map) {		
+		++mode;
 		for (Entry<? extends K, ? extends V> entry : map.entrySet()) {
 			put(entry.getKey(), entry.getValue());
 		}
-		++mode;
 	}
 
 	@Override
 	public V remove(Object key) {
 		int index = getIndex(key);
-		Pair<K, V> pair = getPair(key);
-		if (null != pair) {
-			hashMap.get(index).remove(pair);
-			++mode;
-			return pair.getValue();
+		int listIndex = 0;
+		
+		for (Pair<K, V> pair : hashMap.get(index)) {
+			if (keyEquals(key, pair.getKey())) {
+				return hashMap.get(index).remove(listIndex).getValue();
+			}	
+			++listIndex;
 		}
 		
-		return null;
+		return null;		
 	}
 
 	@Override
@@ -166,15 +155,12 @@ public class HashMap<K,V> implements Map<K, V>{
 
 	@Override
 	public Collection<V> values() {
-		if (null == values) {
-			values = new ValueCollection();
-		}
-		return values;
+		return new ValueCollection();
 	}
 	
 	private class EntrySet extends AbstractSet<Map.Entry<K, V>>{
 		
-		private int entrySetMode = mode;;
+		private int entrySetMode = mode;
 		
 		@Override
 		public Iterator<Entry<K, V>> iterator() {
