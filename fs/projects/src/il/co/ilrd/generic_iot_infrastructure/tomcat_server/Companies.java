@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 
-import il.co.ilrd.tomcat_server.CrudDBProducts;
-
 /**
  * Servlet implementation class TomcatServer
  */
@@ -21,9 +19,7 @@ public class Companies extends HttpServlet {
 	CrudDBCompanies crud;
 	CrudDBProducts prodCrud;
 	private static final long serialVersionUID = 1L;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public Companies() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,9 +30,6 @@ public class Companies extends HttpServlet {
 		}
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		
@@ -61,9 +54,6 @@ public class Companies extends HttpServlet {
 		sendResponse(response, details);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		JsonObject json = HttpRequestToJson.parse(request);
@@ -79,13 +69,16 @@ public class Companies extends HttpServlet {
 		}
 		
 		Status status = crud.create(details);
+		if (status == Status.SUCCESS) {
+			JsonObject jsonRequest = new JsonObject();
+			jsonRequest.addProperty("key", "CR");
+			jsonRequest.add("data", json);
+			HttpJsonSending.sendHTTPRequest("http://0.0.0.0:8500", jsonRequest.toString());
+		}
 		
 		sendResponse(response, status);
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest req, HttpServletResponse resp)
-	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		JsonObject json = HttpRequestToJson.parse(request);
@@ -115,10 +108,7 @@ public class Companies extends HttpServlet {
 
 		sendResponse(response, crud.update(email, details));
 	}
-	
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest req, HttpServletResponse resp)
-	 */
+
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		String token = request.getHeader("token");
@@ -138,6 +128,7 @@ public class Companies extends HttpServlet {
 			sendResponse(response, deleteProdsStatus);
 			return;
 		}
+		
 		sendResponse(response, crud.delete(email));
 	}
 	

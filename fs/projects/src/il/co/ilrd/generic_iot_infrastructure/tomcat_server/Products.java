@@ -1,6 +1,7 @@
 package il.co.ilrd.tomcat_server;
 
 import java.io.IOException;
+
 import java.util.function.BiFunction;
 
 import javax.servlet.ServletException;
@@ -18,11 +19,8 @@ import com.google.gson.JsonObject;
 @WebServlet("/Products")
 public class Products extends HttpServlet {
 	CrudDBProducts crud;
-
 	private static final long serialVersionUID = 1L;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+ 
     public Products() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -32,9 +30,6 @@ public class Products extends HttpServlet {
 		}
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		String token = request.getHeader("token");
@@ -54,49 +49,53 @@ public class Products extends HttpServlet {
 		response.getWriter().println(json);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getDetailsAndExecuteCrud(request, response, (email, details) -> crud.create(email, details));
+		JsonObject json = getDetailsAndExecuteCrud(request, response, (email, details) -> crud.create(email, details));
+		if (null != json) {
+			JsonObject jsonRequest = new JsonObject();
+			jsonRequest.addProperty("key", "PR");
+			jsonRequest.add("data", json);
+			HttpJsonSending.sendHTTPRequest("http://0.0.0.0:8500", jsonRequest.toString());
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest req, HttpServletResponse resp)
-	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		getDetailsAndExecuteCrud(request, response, (email, details) -> crud.update(email, details));
 	}
-	
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest req, HttpServletResponse resp)
-	 */
+
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		getDetailsAndExecuteCrud(request, response, (email, details) -> crud.delete(email, details));
 	}
 	
-	private void getDetailsAndExecuteCrud(HttpServletRequest request, HttpServletResponse response, BiFunction<String, ProductDetails, Status> func) throws IOException {
+	private JsonObject getDetailsAndExecuteCrud(HttpServletRequest request, HttpServletResponse response, BiFunction<String, ProductDetails, Status> func) throws IOException {
 		response.setContentType("text/html");
-		JsonObject json = HttpRequestToJson.parse(request);
-		if (null == json) { 
+		
+		ProductDetails details = null;
+		JsonObject json = null;
+		try {
+			json = HttpRequestToJson.parse(request);
+			details = ProductDetails.getProductDetails(json);	
+		} catch (Exception e) {
 			sendResponse(response, Status.WRONG_INPUT);
-			return; 
+			return null;
 		}
 		
-		ProductDetails details = ProductDetails.getProductDetails(json);
-		if (null == details) { 
-			sendResponse(response, Status.WRONG_INPUT); 
-			return;
-		}
+		Status st = executeCrud(request, response, func, details);
+		sendResponse(response, st);
 		
-		String token = request.getHeader("token");
-		if (null == token) {
-			sendResponse(response, Status.UNAUTHORIZED);		
-			return;
-		}	
-		String email = TokenManager.getEmail(token);
-		Status status = func.apply(email, details);
-		sendResponse(response, status);
+		return json;
+	}
+	
+	private Status executeCrud(HttpServletRequest request, HttpServletResponse response, BiFunction<String, ProductDetails, Status> func, ProductDetails details) {
+		try {
+			String token = request.getHeader("token");
+			String email = TokenManager.getEmail(token);
+			Status status = func.apply(email, details);
+			
+			return status;
+		} catch (Exception e) {
+			return Status.UNAUTHORIZED;
+		}
 	}
 	
 	private void sendResponse(HttpServletResponse response, Status status) throws IOException {
@@ -104,3 +103,32 @@ public class Products extends HttpServlet {
 		response.getWriter().println(status);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
