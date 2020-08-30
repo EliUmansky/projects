@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="signup.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+    <style>
+        body {
+            text-align: center;
+        }
+	form 
+	{
+   		margin-left: 25%;
+    		margin-right:25%;
+    		width: 50%;
+	}
+    </style>
+</head>
+<html>
+    <body>
+	<br>
+        <div class="form" id="myForm">
+            <form action="#" class="form-container" onsubmit="edit(e)">           
+                <input type="text" placeholder="Enter New Name" name="text" id="productName" required> 
+                <input type="submit" class="btn" value="Edit">
+            </form>
+        </div>    
+        <p><a href="products.html">Back To Product List</a></p>
+   </body>
+    <script src="products.js"></script>
+    <script>
+        var myForm = document.getElementById("myForm");
+        myForm.addEventListener("submit",edit);
+        function edit(e) {
+            e.preventDefault();
+            editProduct(e);
+        }
+    </script>
+</html>

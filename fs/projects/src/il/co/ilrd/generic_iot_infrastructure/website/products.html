@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="signup.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+    <style>
+        button.btn.add::before {
+        font-family: fontAwesome;
+        content: "\f067\00a0";
+        }
+
+        button.btn.edit::before {
+        font-family: fontAwesome;
+        content: "\f044\00a0";
+        }
+
+        button.btn.save::before {
+        font-family: fontAwesome;
+        content: "\f00c\00a0";
+        }
+
+        button.btn.cancel::before {
+        font-family: fontAwesome;
+        content: "\f00d\00a0";
+        }
+        table, th, td 
+        {
+            font: 17px Calibri;
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            font-weight:bold;
+        }
+        #centButton
+        {
+            text-align: center;
+        }
+        #myForm{
+            display : none;
+        }
+        a {
+            color: rgb(58, 218, 37) !important;
+            font: 18px Calibri;
+            text-align: center;
+        }
+        </style>
+</head>
+<html>
+    <body onload="loadProducts()">
+        <h1><div id="companyName"></div></h1>      
+        <br>
+        <div id="products"></div>
+        <br><br>
+        <div id="centButton">
+            <button class="open-button" onclick="openForm()">Add New Product</button>
+            <div class="form-popup" id="myForm">
+                <form class="form-container">           
+                    <input type="text" placeholder="Enter New Product Name" name="text" id="productName" required>
+                    
+                    <input type="submit" class="btn" onclick="addProduct()" value="submit">
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close Form</button>
+                </form>
+            </div>
+            <p><a href=compDetails.html> Show Company Details</a></p>
+            
+            
+            
+            <!-- <div style="margin-top: 500px"></div>  -->
+        </div>
+            <div class="form-popup" id="myForm">
+                <button class="open-button" id="compDetails" onclick="loadCompanyDetails()">Show Company Details</button>
+            </div>
+    </body>
+    <script src="products.js"></script>
+    <script src="companies.js"></script>
+    <script>
+        var myForm = document.getElementById("myForm");
+        myForm.addEventListener("submit",addProduct);
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</html>

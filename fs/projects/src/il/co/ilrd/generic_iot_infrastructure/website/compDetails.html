@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Company Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="signup.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+    <style>
+        table, th, td 
+        {
+            font: 17px Calibri;
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th {
+            font-weight:bold;
+        }
+        #centButton
+        {
+            text-align: center;
+        }
+        #myForm{
+            display : none;
+        }
+        #link {
+            color: rgb(58, 218, 37) !important;
+            font: 18px Calibri;
+            text-align: center;
+        }
+        </style>
+</head>
+<html>
+    <br>
+    <h1>Company Details</h1>
+    <br><br>
+    <body onload="loadCompanyDetails()">
+        <div id="companyDetails"></div>
+        <br><br>
+        <div id="centButton">
+        <button class="open-button" onclick="confirmUnregister()">Unregister</button>
+        <button class="open-button" onclick="openForm()">Edit Details</button>
+            <div class="form-popup" id="myForm">
+                <form class="form-container">           
+                    <input type="text" placeholder="Company Name" name="text" id="companyName" required>
+                    <input type="password" placeholder="Password" name="text" id="password" required>
+                    <input type="text" placeholder="Address" name="text" id="address">
+                    
+                    <input type="submit" onsubmit="editCompany()" value="submit">
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close Form</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div id="link">
+            <a href="products.html">Back To Product List</a>
+        </div>
+    </body>
+    <script src="companies.js"></script>
+    <script>
+        var myForm = document.getElementById("myForm");
+        myForm.onsubmit = editCompany;
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        function confirmUnregister() {
+          var r = confirm("Are you sure you want to unregister?\nAll your data will be lost");
+          if (r == true) {
+            deleteCompany();
+          } else {
+            return;
+          }
+          document.getElementById("demo").innerHTML = txt;
+        }
+        </script>
+</html>

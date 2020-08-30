@@ -1,5 +1,8 @@
 * 
 !*.java
+!*.js
+!*.html
+!*.css
 !*.c
 !*.h
 !*.txt
